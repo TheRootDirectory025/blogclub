@@ -1,38 +1,41 @@
-# Blog Club - Modern Blog Exploration App 🚀
+# Blog Club - Arak University Edition 🎓
 
-A sleek, high-performance Flutter application for exploring latest news, articles, and stories. Built with a focus on modern UI/UX principles, clean architecture, and optimized rendering.
+A specialized version of the Blog Club application, developed by **Mohsen Bagheri**, a Computer Engineering student at **Arak University**. This project was created under the supervision of **Professor Mohsen Rahmani** and **Professor Mohammadreza Abbasnezhad**.
+
+## 🏫 Academic Context
+- **Institution:** Arak University (دانشگاه اراک)
+- **Department:** Computer Engineering
+- **Developer:** Mohsen Bagheri (محسن باقری)
+- **Supervisors:** 
+  - Prof. Mohsen Rahmani (محسن رحمانی)
+  - Prof. M.R Abbasnezhad (محمدرضا عباس نژاد)
 
 ## ✨ Features
 
-- **Modern Onboarding:** A smooth, interactive introduction to the app's core value.
-- **Dynamic Story System:** Instagram-style stories with gradient borders for new updates and dotted borders for viewed content.
-- **Featured Categories:** Interactive carousel slider for exploring different blog niches.
-- **Article Feed:** A clean, optimized list of latest news with engagement metrics (likes, reading time).
-- **Smooth Navigation:** Custom-built bottom navigation bar with a floating action button effect.
-- **Theming:** Centralized typography and color palette using Material 3 standards.
+- **Custom Academic UI:** Personalized greeting for Mohsen Bagheri and university branding.
+- **Story Integration:** Features stories dedicated to university departments and faculty members.
+- **Curated Tech Content:** Articles specifically focused on advanced Flutter and mobile engineering.
+- **Modern Onboarding:** Dynamic introduction mentioning the academic context of the project.
+- **Theming:** Clean, high-performance UI using Material 3 standards.
 
 ## 🛠️ Tech Stack & Optimization
 
 - **Framework:** Flutter (Latest Stable)
+- **Build System:** Gradle 8.12 with AGP 8.7.3 (Fully Optimized)
 - **State Management:** Preserving state across tabs using `IndexedStack`.
-- **UI Components:**
-  - `CarouselSlider` for featured content.
-  - `DottedBorder` for story status visualization.
-  - `SmoothPageIndicator` for onboarding flow.
 - **Performance:** 
-  - Optimized `ListView` rendering with `shrinkWrap` and `ClampingScrollPhysics`.
-  - Proper asset management with generated classes for fonts and images.
-  - Adaptive layouts for different screen sizes.
+  - Tree-shaken icons and fonts for minimal APK size.
+  - Optimized rendering logic for high frame rates on Android devices.
 
 ## 📸 Screenshots
 
-| Splash & Onboarding | Authentication | Home Screen |
+| Splash (Arak University) | Onboarding (Academic) | Home (Personalized) |
 |:---:|:---:|:---:|
 | ![Splash](screenshots/onboarding.png) | ![Auth](screenshots/auth.png) | ![Home](screenshots/home.png) |
 
-*(Note: Replace placeholders with actual screenshots from your emulator)*
+*(Note: Real screenshots of the personalized Arak University edition)*
 
-## 🚀 Getting Started
+## 🚀 Installation
 
 1. **Clone the repo:**
    ```bash
@@ -48,4 +51,4 @@ A sleek, high-performance Flutter application for exploring latest news, article
    ```
 
 ## 📝 License
-This project is for educational purposes as part of a modern Flutter development portfolio.
+This project is an academic submission for the Computer Engineering Department of Arak University.

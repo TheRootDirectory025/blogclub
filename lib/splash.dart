@@ -30,6 +30,31 @@ class _SplashScreenState extends State<SplashScreen> {
               child: Assets.img.background.splash.image(fit: BoxFit.cover)),
           Center(
             child: Assets.img.icons.logo.svg(width: 100),
+          ),
+          Positioned(
+            bottom: 48,
+            left: 0,
+            right: 0,
+            child: Column(
+              children: [
+                const Text(
+                  'Arak University',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  'Computer Engineering Department',
+                  style: TextStyle(
+                    color: Colors.white.withOpacity(0.7),
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
           )
         ],
       ),

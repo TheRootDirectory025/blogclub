@@ -29,9 +29,18 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Hi, Jonathan!',
-                      style: themeData.textTheme.titleMedium,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Hi, Mohsen Bagheri!',
+                          style: themeData.textTheme.titleMedium,
+                        ),
+                        Text(
+                          'Arak University Student',
+                          style: themeData.textTheme.bodySmall,
+                        ),
+                      ],
                     ),
                     Assets.img.icons.notification.image(width: 32, height: 32),
                   ],

@@ -46,37 +46,37 @@ class AppDatabase {
     return [
       StoryData(
           id: 1001,
-          name: 'Emilia',
+          name: 'Mohsen Rahmani',
           imageFileName: 'story_9.jpg',
           iconFileName: 'category_1.png',
           isViewed: false),
       StoryData(
           id: 1002,
-          name: 'Richard',
+          name: 'M.R Abbasnezhad',
           imageFileName: 'story_10.jpg',
           iconFileName: 'category_2.png',
           isViewed: false),
       StoryData(
           id: 1003,
-          name: 'Jasmine',
+          name: 'Mohsen Bagheri',
           imageFileName: 'story_1.jpg',
           iconFileName: 'category_3.png',
           isViewed: true),
       StoryData(
           id: 1004,
-          name: 'Lucas',
+          name: 'Arak University',
           imageFileName: 'story_3.jpg',
           iconFileName: 'category_4.png',
           isViewed: false),
       StoryData(
           id: 1005,
-          name: 'Isabella',
+          name: 'Computer Eng.',
           imageFileName: 'story_4.jpg',
           iconFileName: 'category_2.png',
           isViewed: false),
       StoryData(
           id: 1006,
-          name: 'Olivia',
+          name: 'Isabella',
           imageFileName: 'story_6.jpg',
           iconFileName: 'category_1.png',
           isViewed: false),
@@ -118,24 +118,24 @@ class AppDatabase {
     return [
       PostData(
           id: 1,
-          title: 'BMW M5 Competition Review 2021',
-          caption: 'TOP GEAR',
+          title: 'Advanced Flutter Development 2024',
+          caption: 'Arak University',
           isBookmarked: false,
           likes: '3.1k',
           time: '1hr ago',
           imageFileName: 'small_post_1.jpg'),
       PostData(
           id: 0,
-          title: 'MacBook Pro with M1 Pro and M1 Max review',
-          caption: 'THE VERGE',
+          title: 'Modern Mobile UI Design Patterns',
+          caption: 'Mohsen Bagheri',
           isBookmarked: false,
           likes: '1.2k',
           time: '2hr ago',
           imageFileName: 'small_post_2.jpg'),
       PostData(
           id: 2,
-          title: 'Step design sprint for UX beginner',
-          caption: 'Ux Design',
+          title: 'Dart Optimization Techniques',
+          caption: 'Computer Science',
           isBookmarked: true,
           likes: '2k',
           time: '41hr ago',
@@ -144,12 +144,16 @@ class AppDatabase {
   }
 
   static List<OnBoardingItem> get onBoardingItems {
-    List<OnBoardingItem> items = [];
-    for (var i = 0; i < 4; i++) {
-      items.add(OnBoardingItem('Read the article you want instantly',
-          'You can read thousands of articles on Blog Club, save them in the application and share them with your loved ones.'));
-    }
-    return items;
+    return [
+      OnBoardingItem('Welcome to Blog Club Arak',
+          'A specialized project for Arak University under the supervision of Professor Rahmani.'),
+      OnBoardingItem('Read instantly',
+          'Explore thousands of professional articles on mobile development and software engineering.'),
+      OnBoardingItem('Stay Updated',
+          'Follow the latest tech trends directly from your university mobile application.'),
+      OnBoardingItem('Expert Content',
+          'Curated articles by Mohsen Bagheri for advanced computer engineering students.'),
+    ];
   }
 }
 
