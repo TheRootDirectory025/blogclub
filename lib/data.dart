@@ -46,71 +46,51 @@ class AppDatabase {
     return [
       StoryData(
           id: 1001,
-          name: 'Mohsen Rahmani',
-          imageFileName: 'story_9.jpg',
+          name: 'Prof. Rahmani',
+          imageFileName: 'story_10.jpg', // Changed from story_9 to story_10 (Richard - Male)
           iconFileName: 'category_1.png',
           isViewed: false),
       StoryData(
           id: 1002,
-          name: 'M.R Abbasnezhad',
-          imageFileName: 'story_10.jpg',
+          name: 'Prof. Abbasnezhad',
+          imageFileName: 'story_3.jpg', // Changed from story_10 to story_3 (Lucas - Male)
           iconFileName: 'category_2.png',
           isViewed: false),
       StoryData(
           id: 1003,
           name: 'Mohsen Bagheri',
-          imageFileName: 'story_1.jpg',
+          imageFileName: 'story_5.jpg', // Using story_5 for student (assuming male)
           iconFileName: 'category_3.png',
           isViewed: true),
       StoryData(
           id: 1004,
           name: 'Arak University',
-          imageFileName: 'story_3.jpg',
+          imageFileName: 'story_8.jpg', // Changed for variety
           iconFileName: 'category_4.png',
           isViewed: false),
       StoryData(
           id: 1005,
-          name: 'Computer Eng.',
+          name: 'Faculty of Eng.',
           imageFileName: 'story_4.jpg',
           iconFileName: 'category_2.png',
           isViewed: false),
       StoryData(
           id: 1006,
-          name: 'Isabella',
+          name: 'CE Dept.',
           imageFileName: 'story_6.jpg',
           iconFileName: 'category_1.png',
-          isViewed: false),
-      StoryData(
-          id: 1007,
-          name: 'Amelia',
-          imageFileName: 'story_7.jpg',
-          iconFileName: 'category_4.png',
-          isViewed: false),
-      StoryData(
-          id: 1008,
-          name: 'Grace',
-          imageFileName: 'story_2.jpg',
-          iconFileName: 'category_3.png',
           isViewed: false),
     ];
   }
 
   static List<Category> get categories {
     return [
-      Category(
-        id: 101,
-        title: 'Technology',
-        imageFileName: 'large_post_1.jpg',
-      ),
-      Category(id: 102, title: 'Cinema', imageFileName: 'large_post_2.jpg'),
-      Category(
-          id: 103, title: 'Transportation', imageFileName: 'large_post_3.jpg'),
-      Category(id: 104, title: 'Adventure', imageFileName: 'large_post_4.jpg'),
-      Category(
-          id: 105,
-          title: 'Artificial Intelligence',
-          imageFileName: 'large_post_5.jpg'),
-      Category(id: 106, title: 'Economy', imageFileName: 'large_post_6.jpg'),
+      Category(id: 101, title: 'Software Architecture', imageFileName: 'large_post_1.jpg'),
+      Category(id: 102, title: 'Mobile Computing', imageFileName: 'large_post_2.jpg'),
+      Category(id: 103, title: 'UI/UX Design', imageFileName: 'large_post_3.jpg'),
+      Category(id: 104, title: 'Dart & Flutter', imageFileName: 'large_post_4.jpg'),
+      Category(id: 105, title: 'Cloud Integration', imageFileName: 'large_post_5.jpg'),
+      Category(id: 106, title: 'Data Structures', imageFileName: 'large_post_6.jpg'),
     ];
   }
 
@@ -118,41 +98,41 @@ class AppDatabase {
     return [
       PostData(
           id: 1,
-          title: 'Advanced Flutter Development 2024',
-          caption: 'Arak University',
+          title: 'Analysis of Cross-Platform Performance in Flutter',
+          caption: 'Bachelor Thesis',
           isBookmarked: false,
-          likes: '3.1k',
-          time: '1hr ago',
+          likes: '4.5k',
+          time: 'Final Version',
           imageFileName: 'small_post_1.jpg'),
       PostData(
           id: 0,
-          title: 'Modern Mobile UI Design Patterns',
-          caption: 'Mohsen Bagheri',
+          title: 'Implementation of Modern Navigation Patterns',
+          caption: 'UI Engineering',
           isBookmarked: false,
-          likes: '1.2k',
-          time: '2hr ago',
+          likes: '2.1k',
+          time: 'Project Doc',
           imageFileName: 'small_post_2.jpg'),
       PostData(
           id: 2,
-          title: 'Dart Optimization Techniques',
-          caption: 'Computer Science',
+          title: 'State Management and Lifecycle in Mobile Apps',
+          caption: 'Advanced Dev',
           isBookmarked: true,
-          likes: '2k',
-          time: '41hr ago',
+          likes: '3.8k',
+          time: 'Research Paper',
           imageFileName: 'small_post_3.jpg'),
     ];
   }
 
   static List<OnBoardingItem> get onBoardingItems {
     return [
-      OnBoardingItem('Welcome to Blog Club Arak',
-          'A specialized project for Arak University under the supervision of Professor Rahmani.'),
-      OnBoardingItem('Read instantly',
-          'Explore thousands of professional articles on mobile development and software engineering.'),
-      OnBoardingItem('Stay Updated',
-          'Follow the latest tech trends directly from your university mobile application.'),
-      OnBoardingItem('Expert Content',
-          'Curated articles by Mohsen Bagheri for advanced computer engineering students.'),
+      OnBoardingItem('Final Year Project: Blog Club',
+          'A comprehensive software engineering project submitted to Arak University Computer Dept.'),
+      OnBoardingItem('Designed by Mohsen Bagheri',
+          'Under supervision of Prof. Rahmani & Prof. Abbasnezhad. 2023-2024 Academic Year.'),
+      OnBoardingItem('Scalable Architecture',
+          'Leveraging Flutter rendering engine for high-performance mobile application deployment.'),
+      OnBoardingItem('Research & Development',
+          'Focusing on user-centric design and efficient state preservation in modern mobile apps.'),
     ];
   }
 }

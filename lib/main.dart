@@ -1,17 +1,12 @@
-import 'package:blogclub/carousel/carousel_slider.dart';
-import 'package:blogclub/data.dart';
 import 'package:blogclub/gen/assets.gen.dart';
 import 'package:blogclub/gen/fonts.gen.dart';
 import 'package:blogclub/home.dart';
 import 'package:blogclub/splash.dart';
-import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  /// Entry point of the application.
-  /// Sets preferred orientations and initializes the app.
+  /// Entry point for the Bachelor Thesis Project - Arak University.
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
@@ -22,16 +17,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Brand Color Palette definitions
     const primaryTextColor = Color(0xff0D253C);
     const secondaryTextColor = Color(0xff2D4379);
     const primaryColor = Color(0xff376AED);
 
     return MaterialApp(
-      title: 'Blog Club',
+      title: 'Blog Club - Arak University Thesis',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        /// Standardizing button styles across the app for visual consistency.
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             textStyle: const TextStyle(
@@ -41,7 +34,6 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        /// Global ColorScheme setup using Material 3 standards.
         colorScheme: const ColorScheme.light(
           primary: primaryColor,
           onPrimary: Colors.white,
@@ -49,7 +41,6 @@ class MyApp extends StatelessWidget {
           onSurface: primaryTextColor,
         ),
         scaffoldBackgroundColor: const Color(0xffFBFCFF),
-        /// Centralized Typography system using the custom 'Avenir' font family.
         textTheme: const TextTheme(
             titleMedium: TextStyle(
                 fontFamily: FontFamily.avenir,
@@ -91,7 +82,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-/// The main application container that handles navigation between primary tabs.
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
@@ -99,7 +89,6 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
-// Global Tab Index constants for better code readability and maintenance.
 const int homeTabIndex = 0;
 const int articleTabIndex = 1;
 const int searchTabIndex = 2;
@@ -113,20 +102,18 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          /// Using IndexedStack to preserve the state and scroll position of each tab.
           Positioned.fill(
             bottom: 65,
             child: IndexedStack(
               index: selectedTabIndex,
-              children: [
-                const HomeScreen(),
-                _PlaceholderScreen(title: 'Articles'),
-                _PlaceholderScreen(title: 'Search'),
-                _PlaceholderScreen(title: 'Menu'),
+              children: const [
+                HomeScreen(),
+                _PlaceholderScreen(title: 'Scientific Articles'),
+                _PlaceholderScreen(title: 'Search Database'),
+                _ProjectInfoScreen(),
               ],
             ),
           ),
-          /// Custom Bottom Navigation bar positioned at the bottom of the stack.
           Positioned(
             bottom: 0,
             right: 0,
@@ -146,7 +133,71 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
-/// Simple placeholder widget for unimplemented screens.
+/// Dedicated Project Information Screen for Academic Submission.
+class _ProjectInfoScreen extends StatelessWidget {
+  const _ProjectInfoScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final themeData = Theme.of(context);
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(32),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(height: 40),
+          Assets.img.icons.logo.svg(width: 80),
+          const SizedBox(height: 24),
+          Text('BACHELOR THESIS PROJECT', 
+            style: themeData.textTheme.bodySmall!.copyWith(letterSpacing: 2)),
+          const SizedBox(height: 8),
+          Text('Blog Club: Mobile Edition', 
+            style: themeData.textTheme.headlineMedium),
+          const Divider(height: 64),
+          _infoRow(context, 'Developer', 'Mohsen Bagheri'),
+          _infoRow(context, 'Supervisors', 'Prof. Rahmani\nProf. Abbasnezhad'),
+          _infoRow(context, 'Institution', 'Arak University'),
+          _infoRow(context, 'Department', 'Computer Engineering'),
+          _infoRow(context, 'Academic Year', '2023 - 2024'),
+          const SizedBox(height: 32),
+          Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: themeData.colorScheme.primary.withOpacity(0.05),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Text(
+              'This application explores high-performance rendering techniques and modern UI patterns in cross-platform mobile development using the Flutter framework.',
+              textAlign: TextAlign.center,
+              style: themeData.textTheme.bodyMedium,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _infoRow(BuildContext context, String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 12),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 2,
+            child: Text(label, style: Theme.of(context).textTheme.bodySmall),
+          ),
+          Expanded(
+            flex: 3,
+            child: Text(value, 
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(fontWeight: FontWeight.bold)),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class _PlaceholderScreen extends StatelessWidget {
   final String title;
   const _PlaceholderScreen({Key? key, required this.title}) : super(key: key);
@@ -162,7 +213,6 @@ class _PlaceholderScreen extends StatelessWidget {
   }
 }
 
-/// Custom-built Bottom Navigation bar with a floating action button effect.
 class _BottomNavigation extends StatelessWidget {
   final int selectedIndex;
   final Function(int index) onTap;
@@ -216,14 +266,13 @@ class _BottomNavigation extends StatelessWidget {
                   BottomNavigationItem(
                       iconFileName: 'Menu.png',
                       activeIconFileName: 'Menu.png',
-                      title: 'Menu',
+                      title: 'Project',
                       isActive: selectedIndex == menuTabIndex,
                       onTap: () => onTap(menuTabIndex)),
                 ],
               ),
             ),
           ),
-          /// The floating center 'plus' button UI.
           Center(
             child: Container(
               width: 65,
@@ -245,7 +294,6 @@ class _BottomNavigation extends StatelessWidget {
   }
 }
 
-/// A single interactive item within the Bottom Navigation bar.
 class BottomNavigationItem extends StatelessWidget {
   final String iconFileName;
   final String activeIconFileName;
