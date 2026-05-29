@@ -28,7 +28,7 @@ A sleek, high-performance Flutter application for exploring latest news, article
 
 | Splash & Onboarding | Authentication | Home Screen |
 |:---:|:---:|:---:|
-| ![Splash](https://via.placeholder.com/200x400?text=Splash+Screen) | ![Auth](https://via.placeholder.com/200x400?text=Login+Screen) | ![Home](https://via.placeholder.com/200x400?text=Home+Screen) |
+| ![Splash](screenshots/onboarding.png) | ![Auth](screenshots/auth.png) | ![Home](screenshots/home.png) |
 
 *(Note: Replace placeholders with actual screenshots from your emulator)*
 
