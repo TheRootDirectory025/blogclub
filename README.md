@@ -1,18 +1,51 @@
-# blogclub
+# Blog Club - Modern Blog Exploration App 🚀
 
-A new Flutter project.
+A sleek, high-performance Flutter application for exploring latest news, articles, and stories. Built with a focus on modern UI/UX principles, clean architecture, and optimized rendering.
 
-## Getting Started
+## ✨ Features
 
-This project is a starting point for a Flutter application.
+- **Modern Onboarding:** A smooth, interactive introduction to the app's core value.
+- **Dynamic Story System:** Instagram-style stories with gradient borders for new updates and dotted borders for viewed content.
+- **Featured Categories:** Interactive carousel slider for exploring different blog niches.
+- **Article Feed:** A clean, optimized list of latest news with engagement metrics (likes, reading time).
+- **Smooth Navigation:** Custom-built bottom navigation bar with a floating action button effect.
+- **Theming:** Centralized typography and color palette using Material 3 standards.
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ Tech Stack & Optimization
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- **Framework:** Flutter (Latest Stable)
+- **State Management:** Preserving state across tabs using `IndexedStack`.
+- **UI Components:**
+  - `CarouselSlider` for featured content.
+  - `DottedBorder` for story status visualization.
+  - `SmoothPageIndicator` for onboarding flow.
+- **Performance:** 
+  - Optimized `ListView` rendering with `shrinkWrap` and `ClampingScrollPhysics`.
+  - Proper asset management with generated classes for fonts and images.
+  - Adaptive layouts for different screen sizes.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📸 Screenshots
 
-Last updated: 2026-05-25 00:20:56
+| Splash & Onboarding | Authentication | Home Screen |
+|:---:|:---:|:---:|
+| ![Splash](https://via.placeholder.com/200x400?text=Splash+Screen) | ![Auth](https://via.placeholder.com/200x400?text=Login+Screen) | ![Home](https://via.placeholder.com/200x400?text=Home+Screen) |
+
+*(Note: Replace placeholders with actual screenshots from your emulator)*
+
+## 🚀 Getting Started
+
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/blogclub.git
+   ```
+2. **Install dependencies:**
+   ```bash
+   flutter pub get
+   ```
+3. **Run the app:**
+   ```bash
+   flutter run
+   ```
+
+## 📝 License
+This project is for educational purposes as part of a modern Flutter development portfolio.
