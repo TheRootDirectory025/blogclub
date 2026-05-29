@@ -10,6 +10,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
+  /// Entry point of the application.
+  /// Sets preferred orientations and initializes the app.
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
 
@@ -18,13 +22,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Brand Color Palette definitions
     const primaryTextColor = Color(0xff0D253C);
     const secondaryTextColor = Color(0xff2D4379);
     const primaryColor = Color(0xff376AED);
 
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Blog Club',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        /// Standardizing button styles across the app for visual consistency.
         textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
             textStyle: const TextStyle(
@@ -34,6 +41,7 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
+        /// Global ColorScheme setup using Material 3 standards.
         colorScheme: const ColorScheme.light(
           primary: primaryColor,
           onPrimary: Colors.white,
@@ -41,6 +49,7 @@ class MyApp extends StatelessWidget {
           onSurface: primaryTextColor,
         ),
         scaffoldBackgroundColor: const Color(0xffFBFCFF),
+        /// Centralized Typography system using the custom 'Avenir' font family.
         textTheme: const TextTheme(
             titleMedium: TextStyle(
                 fontFamily: FontFamily.avenir,
@@ -82,6 +91,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// The main application container that handles navigation between primary tabs.
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
@@ -89,6 +99,7 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 
+// Global Tab Index constants for better code readability and maintenance.
 const int homeTabIndex = 0;
 const int articleTabIndex = 1;
 const int searchTabIndex = 2;
@@ -102,6 +113,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: Stack(
         children: [
+          /// Using IndexedStack to preserve the state and scroll position of each tab.
           Positioned.fill(
             bottom: 65,
             child: IndexedStack(
@@ -114,6 +126,7 @@ class _MainScreenState extends State<MainScreen> {
               ],
             ),
           ),
+          /// Custom Bottom Navigation bar positioned at the bottom of the stack.
           Positioned(
             bottom: 0,
             right: 0,
@@ -133,6 +146,7 @@ class _MainScreenState extends State<MainScreen> {
   }
 }
 
+/// Simple placeholder widget for unimplemented screens.
 class _PlaceholderScreen extends StatelessWidget {
   final String title;
   const _PlaceholderScreen({Key? key, required this.title}) : super(key: key);
@@ -148,6 +162,7 @@ class _PlaceholderScreen extends StatelessWidget {
   }
 }
 
+/// Custom-built Bottom Navigation bar with a floating action button effect.
 class _BottomNavigation extends StatelessWidget {
   final int selectedIndex;
   final Function(int index) onTap;
@@ -208,6 +223,7 @@ class _BottomNavigation extends StatelessWidget {
               ),
             ),
           ),
+          /// The floating center 'plus' button UI.
           Center(
             child: Container(
               width: 65,
@@ -229,6 +245,7 @@ class _BottomNavigation extends StatelessWidget {
   }
 }
 
+/// A single interactive item within the Bottom Navigation bar.
 class BottomNavigationItem extends StatelessWidget {
   final String iconFileName;
   final String activeIconFileName;

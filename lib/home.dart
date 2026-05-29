@@ -5,8 +5,8 @@ import 'package:blogclub/gen/fonts.gen.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
+/// Main landing page displaying stories, categories, and news posts.
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -14,13 +14,16 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData themeData = Theme.of(context);
     final stories = AppDatabase.stories;
+    
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
+          /// Using BouncingScrollPhysics for a more natural feel on both iOS and Android.
           physics: const BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              /// Personalized greeting header.
               Padding(
                 padding: const EdgeInsets.fromLTRB(32, 16, 32, 0),
                 child: Row(
@@ -31,10 +34,10 @@ class HomeScreen extends StatelessWidget {
                       style: themeData.textTheme.titleMedium,
                     ),
                     Assets.img.icons.notification.image(width: 32, height: 32),
-                  
                   ],
                 ),
               ),
+              /// Section introduction title.
               Padding(
                 padding: const EdgeInsets.fromLTRB(32, 0, 0, 16),
                 child: Text(
@@ -42,15 +45,14 @@ class HomeScreen extends StatelessWidget {
                   style: themeData.textTheme.headlineMedium,
                 ),
               ),
+              /// Horizontally scrollable list of user stories.
               _StoryList(stories: stories),
-              const SizedBox(
-                height: 16,
-              ),
+              const SizedBox(height: 16),
+              /// Featured categories displayed in a carousel.
               const _CategoryList(),
+              /// Vertical list showing the latest blog posts.
               const _PostList(),
-              const SizedBox(
-                height: 32,
-              ),
+              const SizedBox(height: 32),
             ],
           ),
         ),
@@ -59,10 +61,9 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+/// A carousel-based list for displaying featured categories.
 class _CategoryList extends StatelessWidget {
-  const _CategoryList({
-    Key? key,
-  }) : super(key: key);
+  const _CategoryList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -89,10 +90,12 @@ class _CategoryList extends StatelessWidget {
   }
 }
 
+/// Individual item within the category carousel with custom shadows and gradients.
 class _CategoryItem extends StatelessWidget {
   final Category category;
   final double left;
   final double right;
+  
   const _CategoryItem({
     Key? key,
     required this.category,
@@ -106,6 +109,7 @@ class _CategoryItem extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(left, 0, right, 0),
       child: Stack(
         children: [
+          /// Outer elevation shadow for the category card.
           Positioned.fill(
               top: 100,
               right: 65,
@@ -116,6 +120,7 @@ class _CategoryItem extends StatelessWidget {
                   BoxShadow(blurRadius: 20, color: Color(0xaa0D253C)),
                 ]),
               )),
+          /// Main category image with an overlay gradient for text readability.
           Positioned.fill(
             child: Container(
               margin: const EdgeInsets.fromLTRB(0, 0, 0, 16),
@@ -142,6 +147,7 @@ class _CategoryItem extends StatelessWidget {
               ),
             ),
           ),
+          /// Category title overlay.
           Positioned(
             bottom: 48,
             left: 32,
@@ -159,6 +165,7 @@ class _CategoryItem extends StatelessWidget {
   }
 }
 
+/// A horizontally scrollable row of user profile stories.
 class _StoryList extends StatelessWidget {
   const _StoryList({
     Key? key,
@@ -179,13 +186,13 @@ class _StoryList extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(32, 0, 32, 0),
           itemBuilder: (context, index) {
             final story = stories[index];
-
             return _Story(story: story);
           }),
     );
   }
 }
 
+/// Represents a single story item with conditional border rendering.
 class _Story extends StatelessWidget {
   const _Story({
     Key? key,
@@ -202,6 +209,7 @@ class _Story extends StatelessWidget {
         children: [
           Stack(
             children: [
+              /// Toggles between a gradient border (new) and a dotted border (viewed).
               story.isViewed ? _profileImageViewed() : _profileImageNormal(),
               Positioned(
                 bottom: 0,
@@ -214,15 +222,14 @@ class _Story extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(
-            height: 8,
-          ),
+          const SizedBox(height: 8),
           Text(story.name),
         ],
       ),
     );
   }
 
+  /// Modern gradient border for unviewed stories.
   Container _profileImageNormal() {
     return Container(
       width: 68,
@@ -247,6 +254,7 @@ class _Story extends StatelessWidget {
     );
   }
 
+  /// Dotted border style for already viewed stories using DottedBorder package.
   Widget _profileImageViewed() {
     return SizedBox(
       width: 68,
@@ -256,10 +264,7 @@ class _Story extends StatelessWidget {
         strokeWidth: 2,
         radius: const Radius.circular(24),
         color: const Color(0xff7B8BB2),
-        dashPattern: const [
-          8,
-          3,
-        ],
+        dashPattern: const [8, 3],
         padding: const EdgeInsets.all(7),
         child: Container(
           decoration: BoxDecoration(
@@ -279,8 +284,10 @@ class _Story extends StatelessWidget {
   }
 }
 
+/// Displays the main vertical list of articles/posts.
 class _PostList extends StatelessWidget {
   const _PostList({Key? key}) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     final posts = AppDatabase.posts;
@@ -305,6 +312,7 @@ class _PostList extends StatelessWidget {
             ],
           ),
         ),
+        /// Using shrinkWrap: true and ClampingScrollPhysics as it's nested inside a SingleChildScrollView.
         ListView.builder(
             itemCount: posts.length,
             itemExtent: 141,
@@ -319,6 +327,7 @@ class _PostList extends StatelessWidget {
   }
 }
 
+/// Represents an individual article card with its metadata (likes, time, bookmark).
 class _Post extends StatelessWidget {
   const _Post({
     Key? key,
@@ -343,6 +352,7 @@ class _Post extends StatelessWidget {
       ),
       child: Row(
         children: [
+          /// Article thumbnail.
           ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child:
@@ -354,6 +364,7 @@ class _Post extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  /// Article category/caption.
                   Text(
                     post.caption,
                     style: const TextStyle(
@@ -362,34 +373,26 @@ class _Post extends StatelessWidget {
                         fontSize: 14,
                         color: Color(0xff376AED)),
                   ),
-                  const SizedBox(
-                    height: 8,
-                  ),
+                  const SizedBox(height: 8),
+                  /// Article title.
                   Text(post.title,
                       style: Theme.of(context).textTheme.titleSmall),
-                  const SizedBox(
-                    height: 16,
-                  ),
+                  const SizedBox(height: 16),
+                  /// Interaction bar showing social signals and metadata.
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Icon(CupertinoIcons.hand_thumbsup,
                           size: 16,
                           color: Theme.of(context).textTheme.bodyMedium!.color),
-                      const SizedBox(
-                        width: 4,
-                      ),
+                      const SizedBox(width: 4),
                       Text(post.likes,
                           style: Theme.of(context).textTheme.bodyMedium),
-                      const SizedBox(
-                        width: 16,
-                      ),
+                      const SizedBox(width: 16),
                       Icon(CupertinoIcons.clock,
                           size: 16,
                           color: Theme.of(context).textTheme.bodyMedium!.color),
-                      const SizedBox(
-                        width: 4,
-                      ),
+                      const SizedBox(width: 4),
                       Text(post.time,
                           style: Theme.of(context).textTheme.bodyMedium),
                       Expanded(
@@ -415,4 +418,3 @@ class _Post extends StatelessWidget {
     );
   }
 }
-      
