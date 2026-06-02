@@ -52,14 +52,14 @@ class AppDatabase {
           isViewed: false),
       StoryData(
           id: 1002,
-          name: 'Prof. Abbasnezhad',
-          imageFileName: 'story_3.jpg', // Changed from story_10 to story_3 (Lucas - Male)
+          name: 'Computer Eng.',
+          imageFileName: 'story_3.jpg', // Lucas - Male
           iconFileName: 'category_2.png',
           isViewed: false),
       StoryData(
           id: 1003,
           name: 'Mohsen Bagheri',
-          imageFileName: 'story_5.jpg', // Using story_5 for student (assuming male)
+          imageFileName: 'myimg.jpg',
           iconFileName: 'category_3.png',
           isViewed: true),
       StoryData(
@@ -128,7 +128,7 @@ class AppDatabase {
       OnBoardingItem('Final Year Project: Blog Club',
           'A comprehensive software engineering project submitted to Arak University Computer Dept.'),
       OnBoardingItem('Designed by Mohsen Bagheri',
-          'Under supervision of Prof. Rahmani & Prof. Abbasnezhad. 2023-2024 Academic Year.'),
+          'Under supervision of Prof. Rahmani. 2023-2024 Academic Year.'),
       OnBoardingItem('Scalable Architecture',
           'Leveraging Flutter rendering engine for high-performance mobile application deployment.'),
       OnBoardingItem('Research & Development',

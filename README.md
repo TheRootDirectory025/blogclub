@@ -1,14 +1,13 @@
 # Blog Club - Arak University Edition 🎓
 
-A specialized version of the Blog Club application, developed by **Mohsen Bagheri**, a Computer Engineering student at **Arak University**. This project was created under the supervision of **Professor Mohsen Rahmani** and **Professor Mohammadreza Abbasnezhad**.
+A specialized version of the Blog Club application, developed by **Mohsen Bagheri**, a Computer Engineering student at **Arak University**. This project was created under the supervision of **Professor Mohsen Rahmani**.
 
 ## 🏫 Academic Context
 - **Institution:** Arak University (دانشگاه اراک)
 - **Department:** Computer Engineering
 - **Developer:** Mohsen Bagheri (محسن باقری)
-- **Supervisors:** 
+- **Supervisor:** 
   - Prof. Mohsen Rahmani (محسن رحمانی)
-  - Prof. M.R Abbasnezhad (محمدرضا عباس نژاد)
 
 ## ✨ Features
 

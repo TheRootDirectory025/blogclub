@@ -1,3 +1,4 @@
+import 'package:blogclub/article.dart';
 import 'package:blogclub/carousel/carousel_slider.dart';
 import 'package:blogclub/data.dart';
 import 'package:blogclub/gen/assets.gen.dart';
@@ -61,7 +62,7 @@ class HomeScreen extends StatelessWidget {
               const _CategoryList(),
               /// Vertical list showing the latest blog posts.
               const _PostList(),
-              const SizedBox(height: 32),
+              const SizedBox(height: 120), // Padding for floating glass bar
             ],
           ),
         ),
@@ -347,82 +348,94 @@ class _Post extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.fromLTRB(32, 8, 32, 8),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: const [
-          BoxShadow(
-            blurRadius: 10,
-            color: Color(0x1a5282FF),
-          ),
-        ],
-      ),
-      child: Row(
-        children: [
-          /// Article thumbnail.
-          ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child:
-                  Image.asset('assets/img/posts/small/${post.imageFileName}')),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  /// Article category/caption.
-                  Text(
-                    post.caption,
-                    style: const TextStyle(
-                        fontFamily: FontFamily.avenir,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 14,
-                        color: Color(0xff376AED)),
-                  ),
-                  const SizedBox(height: 8),
-                  /// Article title.
-                  Text(post.title,
-                      style: Theme.of(context).textTheme.titleSmall),
-                  const SizedBox(height: 16),
-                  /// Interaction bar showing social signals and metadata.
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Icon(CupertinoIcons.hand_thumbsup,
-                          size: 16,
-                          color: Theme.of(context).textTheme.bodyMedium!.color),
-                      const SizedBox(width: 4),
-                      Text(post.likes,
-                          style: Theme.of(context).textTheme.bodyMedium),
-                      const SizedBox(width: 16),
-                      Icon(CupertinoIcons.clock,
-                          size: 16,
-                          color: Theme.of(context).textTheme.bodyMedium!.color),
-                      const SizedBox(width: 4),
-                      Text(post.time,
-                          style: Theme.of(context).textTheme.bodyMedium),
-                      Expanded(
-                        child: Container(
-                          alignment: Alignment.centerRight,
-                          child: Icon(
-                              post.isBookmarked
-                                  ? CupertinoIcons.bookmark_fill
-                                  : CupertinoIcons.bookmark,
-                              size: 16,
-                              color:
-                                  Theme.of(context).textTheme.bodyMedium!.color),
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+            MaterialPageRoute(builder: (context) => const ArticleScreen()));
+      },
+      child: Container(
+        margin: const EdgeInsets.fromLTRB(32, 8, 32, 8),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: const [
+            BoxShadow(
+              blurRadius: 10,
+              color: Color(0x1a5282FF),
             ),
-          )
-        ],
+          ],
+        ),
+        child: Row(
+          children: [
+            /// Article thumbnail.
+            ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child:
+                    Image.asset('assets/img/posts/small/${post.imageFileName}')),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    /// Article category/caption.
+                    Text(
+                      post.caption,
+                      style: const TextStyle(
+                          fontFamily: FontFamily.avenir,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 14,
+                          color: Color(0xff376AED)),
+                    ),
+                    const SizedBox(height: 8),
+
+                    /// Article title.
+                    Text(post.title,
+                        style: Theme.of(context).textTheme.titleSmall),
+                    const SizedBox(height: 16),
+
+                    /// Interaction bar showing social signals and metadata.
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Icon(CupertinoIcons.hand_thumbsup,
+                            size: 16,
+                            color:
+                                Theme.of(context).textTheme.bodyMedium!.color),
+                        const SizedBox(width: 4),
+                        Text(post.likes,
+                            style: Theme.of(context).textTheme.bodyMedium),
+                        const SizedBox(width: 16),
+                        Icon(CupertinoIcons.clock,
+                            size: 16,
+                            color:
+                                Theme.of(context).textTheme.bodyMedium!.color),
+                        const SizedBox(width: 4),
+                        Text(post.time,
+                            style: Theme.of(context).textTheme.bodyMedium),
+                        Expanded(
+                          child: Container(
+                            alignment: Alignment.centerRight,
+                            child: Icon(
+                                post.isBookmarked
+                                    ? CupertinoIcons.bookmark_fill
+                                    : CupertinoIcons.bookmark,
+                                size: 16,
+                                color: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .color),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
