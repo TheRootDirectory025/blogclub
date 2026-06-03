@@ -28,7 +28,7 @@ A specialized version of the Blog Club application, developed by **Mohsen Bagher
 
 ## 📸 Screenshots
 
-| Splash (Arak University) | Onboarding (Academic) | Home (Personalized) |
+| Splash  | Onboarding  | Home  |
 |:---:|:---:|:---:|
 | ![Splash](screenshots/onboarding.png) | ![Auth](screenshots/auth.png) | ![Home](screenshots/home.png) |
 
