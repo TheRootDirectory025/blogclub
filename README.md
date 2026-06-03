@@ -42,12 +42,12 @@ The primary goal of this thesis project is to showcase Flutter's capability to d
 ## 🚀 Installation
 Install dependencies:
 
-   flutter pub get
-   Run the app (Select your target device):
+   - flutter pub get
+   - Run the app (Select your target device):
 
 
-   flutter run -d chrome  # For Web
-   flutter run            # For Android/iOS
+   - flutter run -d chrome  # For Web
+   - flutter run            # For Android/iOS
 ## 📝 License
 This project is an academic submission for the Computer Engineering Department of Arak University.
 
