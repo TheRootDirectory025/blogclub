@@ -35,7 +35,7 @@ The primary goal of this thesis project is to showcase Flutter's capability to d
 
 | Android / iOS  | Web Browser | Onboarding |
 |:---:|:---:|:---:|
-| ![Home](screenshots/home.png) | ![Web](screenshots/web.png) | ![Onboarding](screenshots/onboarding.png) |
+| ![Home](screenshots/home.png) | ![Web](screenshots/web.jpg) | ![Onboarding](screenshots/onboarding.jpg) |
 
 *(Note: Real screenshots of the personalized Arak University edition across different platforms)*
 
