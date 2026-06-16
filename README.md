@@ -41,7 +41,7 @@ The primary goal of this thesis project is to showcase Flutter's capability to d
 
 ## 📄 Full Documentation
 A complete technical report covering Flutter fundamentals, architecture, widget implementation, and build process is available here:
-👉 [Project Documentation (DOCX)](docs/BlogClub.pdf)
+👉 [Project Documentation (PDF)](docs/BlogClubProject.pdf)
 
 ## 🚀 Installation
 Install dependencies:
