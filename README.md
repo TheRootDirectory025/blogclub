@@ -39,6 +39,10 @@ The primary goal of this thesis project is to showcase Flutter's capability to d
 
 *(Note: Real screenshots of the personalized Arak University edition across different platforms)*
 
+## 📄 Full Documentation
+A complete technical report covering Flutter fundamentals, architecture, widget implementation, and build process is available here:
+👉 [Project Documentation (DOCX)](docs/BlogClub.pdf)
+
 ## 🚀 Installation
 Install dependencies:
 
